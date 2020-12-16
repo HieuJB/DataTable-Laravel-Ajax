@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BooksController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::resource('index',BooksController::class);
+Route::post('ss',[BooksController::class,'add_data'])->name('add.data');
+Route::get('/index',[BooksController::class,'index'])->name('index.index');
+Route::get('/edit/{id}',[BooksController::class,'find_id_edit']);
+Route::put('/ss',[BooksController::class,'edit_data'])->name('edit_data');
+Route::delete('delete/{id}',[BooksController::class,'remove_data']);
